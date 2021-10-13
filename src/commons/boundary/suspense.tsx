@@ -19,7 +19,7 @@ export default function SuspenseBoundary(props: React.PropsWithChildren<any>) {
     setTimeout(() => {
       setLoading(false);
     }, 2000);
-  }, []);
+  });
 
   function Loading() {
     return (

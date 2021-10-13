@@ -19,13 +19,17 @@ export default function Toggle() {
     }
   };
 
-  useEffect(() => {
+  const checkDarkMode = () => {
     if (darkMode) {
       setIsDarkMode(true);
     } else {
       setIsDarkMode(false);
     }
-  }, []);
+  };
+
+  useEffect(() => {
+    checkDarkMode();
+  });
 
   return (
     <DarkModeToggle onChange={toggleTheme} checked={isDarkMode} size={40} />

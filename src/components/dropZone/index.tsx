@@ -62,7 +62,6 @@ export default function Upload(props: uploadProps) {
     files,
     extra: { maxFiles },
   }: ILayoutProps) => {
-    console.log("fileslen", files);
     return (
       <LayoutContainer>
         {previews}

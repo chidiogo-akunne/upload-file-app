@@ -9,10 +9,12 @@ export default function Toggle() {
 
   const toggleTheme = () => {
     if (isDarkMode) {
+      //update darkmode state and persists/store with/in local storage
       theme.dispatch({ type: "LIGHTMODE" });
       window.localStorage.setItem("darkMode", "light");
       setIsDarkMode(false);
     } else {
+      //update darkmode state and persists/store with/in local storage
       window.localStorage.setItem("darkMode", "dark");
       theme.dispatch({ type: "DARKMODE" });
       setIsDarkMode(true);
@@ -20,11 +22,8 @@ export default function Toggle() {
   };
 
   useEffect(() => {
-    if (darkMode) {
-      setIsDarkMode(true);
-    } else {
-      setIsDarkMode(false);
-    }
+    //get status of darkmode and set toggle
+    setIsDarkMode(darkMode);
   }, []);
 
   return (

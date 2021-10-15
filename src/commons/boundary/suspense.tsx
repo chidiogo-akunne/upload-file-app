@@ -10,12 +10,14 @@ export default function SuspenseBoundary(props: React.PropsWithChildren<any>) {
   const theme = useContext(ThemeContext);
 
   useEffect(() => {
+    //get dark mode value from local storage and dispatch to context
     const darkMode = window.localStorage.getItem("darkMode");
     if (darkMode === "dark") {
       theme.dispatch({ type: "DARKMODE" });
     } else {
       theme.dispatch({ type: "LIGHTMODE" });
     }
+    //wait for 2 seconds before setting state
     setTimeout(() => {
       setLoading(false);
     }, 2000);
@@ -29,8 +31,9 @@ export default function SuspenseBoundary(props: React.PropsWithChildren<any>) {
     );
   }
 
+  //check if loading is false before mountiing children
   return (
-    <Suspense fallback={Loading()}>
+    <Suspense fallback={Loading}>
       {loading ? <Loading /> : props.children}
     </Suspense>
   );

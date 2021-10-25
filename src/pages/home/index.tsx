@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import Card from "../../components/card";
 import Dropzone from "../../components/dropZone";
-import { ThemeContext } from "../../context";
+import { ThemeContext, useTheme } from "../../context";
 import Toggle from "../../components/darkModeToggle";
 
 import { Container, Header, HeaderLeft, Text } from "./styles";
 
 export default function Home() {
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
   const darkMode = theme.state.darkMode;
   const buttonColor = darkMode ? "rgb(0, 0, 0)" : "rgb(102 77 210";
 
